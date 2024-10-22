@@ -26,7 +26,7 @@ class NodeCommandController extends CommandController
     /**
      * Run definded node migrations in setting Carbon.AutoMigrate.node
      *
-     * @param bool $confirmation Confirm application of this migration, only needed if the given migration contains any warnings.
+     * @param bool $confirmation Confirm application of the migrations, only needed if one of the given migrations contains any warnings.
      * @param bool $dryRun If true, no changes will be made
      * @return void
      */
@@ -38,7 +38,7 @@ class NodeCommandController extends CommandController
             $this->quit();
         }
         $this->outputLine();
-        $nodeMigrations = $this->nodeMigration ?? [];
+        $nodeMigrations = $this->nodeMigration ?? null;
         if (!isset($nodeMigrations) || !is_array($nodeMigrations) || !count($nodeMigrations)) {
             $this->outputLine('No automatic node migrations defined');
             $this->quit();
