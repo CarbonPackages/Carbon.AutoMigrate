@@ -6,11 +6,11 @@ to run migrations after deployments.
 ## Installation
 
 This package is available via [packagist]. Run `composer require carbon/automigrate --no-update` in your
-Site package. After that, run `composer update` in your root directory.
+site package. After that, run `composer update` in your root directory.
 
 ## How to use it
 
-Add you node migration version numbers to your `Settings.yaml`:
+Add your node migrations version numbers to your `Settings.yaml`:
 
 ```yaml
 Carbon:
@@ -39,7 +39,7 @@ Run `./flow help node:automigrate` to see the options:
 This can be used to rename one or multiply property values. This is also possible with default yaml, but need many
 lines, if you have multiple values to change.
 
-A migration could look like this
+A migration could look like this:
 
 ```yaml
 up:
@@ -84,8 +84,8 @@ down:
 ### [RenameNodeTypesMigration](Classes/Migrations/RenameNodeTypesMigration.php)
 
 This can be used if you want to rename NodeTypes. This not only change the `nodetype` in the table
-`neos_contentrepository_domain_model_nodedata` it also set the `siteresourcespackagekey` in
-`neos_neos_domain_model_site` if the Node Type match.
+`neos_contentrepository_domain_model_nodedata`, it also set the `siteresourcespackagekey` in
+`neos_neos_domain_model_site` if the node type match.
 
 You have to create a PHP file in your package under `Migrations/Mysql`
 
@@ -96,7 +96,7 @@ namespace Neos\Flow\Persistence\Doctrine\Migrations;
 
 use Carbon\AutoMigrate\RenameNodeTypesMigration;
 
-class VersionYYYYMMDDHHMMSS extends RenameNodeTypesMigration
+class Version20241005130500 extends RenameNodeTypesMigration
 {
   public array $nodeTypes = [
     "Vendor.Example:Content.OldNodeType" => "Vendor.Example:Content.NewNodeType",
@@ -104,5 +104,7 @@ class VersionYYYYMMDDHHMMSS extends RenameNodeTypesMigration
   ];
 }
 ```
+
+The migration will automatically run if you run `./flow doctrine:migrations`.
 
 [packagist]: https://packagist.org/packages/carbon/automigrate
