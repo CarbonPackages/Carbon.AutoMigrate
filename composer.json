@@ -1,0 +1,21 @@
+{
+    "name": "carbon/automigrate",
+    "type": "neos-carbon",
+    "description": "Automatic migrations for Neos CMS",
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "neos/neos": "^8.3",
+        "neos/content-repository": "^8.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Carbon\\AutoMigrate\\": "Classes/"
+        }
+    },
+    "keywords": [
+        "flow",
+        "neos",
+        "carbon",
+        "migrations"
+    ]
+}
