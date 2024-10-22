@@ -1,7 +1,7 @@
 {
     "name": "carbon/automigrate",
     "type": "neos-carbon",
-    "description": "Automatic migrations for Neos CMS",
+    "description": "Automatic node migrations for Neos CMS",
     "license": "GPL-3.0-or-later",
     "require": {
         "neos/neos": "^8.3",
