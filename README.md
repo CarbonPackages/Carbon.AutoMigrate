@@ -14,7 +14,7 @@ Add your node migrations version numbers to your `Settings.yaml`:
 
 ```yaml
 Carbon:
-  AutoMigrations:
+  AutoMigrate:
     node:
       20241005070000: true
       20241005090000: true
