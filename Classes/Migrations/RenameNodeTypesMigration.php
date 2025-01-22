@@ -12,7 +12,7 @@ use Doctrine\DBAL\Schema\Schema;
  *
  * <?php
  * namespace Neos\Flow\Persistence\Doctrine\Migrations;
- * use Carbon\AutoMigrate\RenameNodeTypesMigration;
+ * use Carbon\AutoMigrate\Migrations\RenameNodeTypesMigration;
  * class VersionYYYYMMDDHHMMSS extends RenameNodeTypesMigration
  * {
  *      public array $nodeTypes = [

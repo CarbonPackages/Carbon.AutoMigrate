@@ -94,7 +94,7 @@ You have to create a PHP file in your package under `Migrations/Mysql`
 
 namespace Neos\Flow\Persistence\Doctrine\Migrations;
 
-use Carbon\AutoMigrate\RenameNodeTypesMigration;
+use Carbon\AutoMigrate\Migrations\RenameNodeTypesMigration;
 
 class Version20241005130500 extends RenameNodeTypesMigration
 {
