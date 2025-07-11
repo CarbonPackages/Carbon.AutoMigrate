@@ -34,6 +34,52 @@ Run `./flow help node:automigrate` to see the options:
 
 ## Aditional migration helper
 
+### [ChangeNumericPropertyValueMigration](Classes/Migrations/ChangeNumericPropertyValueMigration.php)
+
+Change the numeric value of a given property.
+
+A migration could look like this:
+
+```yaml
+up:
+  comments: 'Adjust font sizes'
+  migration:
+    - filters:
+        - type: 'NodeType'
+          settings:
+            nodeType: 'Litefyr.Integration:Content.Headline'
+      transformations:
+        - type: 'Carbon\AutoMigrate\Migrations\ChangeNumericPropertyValueMigration'
+          settings:
+            property: 'fontSize'
+            type: '+'
+            value: 4
+            defaultValue: 6
+            max: 10
+
+down:
+  comments: "Revert adjust font sizes"
+  migration:
+    - filters:
+        - type: "NodeType"
+          settings:
+            nodeType: 'Litefyr.Integration:Content.Headline'
+      transformations:
+        - type: 'Carbon\AutoMigrate\Migrations\ChangeNumericPropertyValueMigration'
+          settings:
+            property: 'fontSize'
+            type: '-'
+            value: 4
+            defaultValue: 6
+            min: 1
+```
+
+### [ChangePropertyValueMigration](Classes/Migrations/ChangePropertyValueMigration.php)
+
+This is basically the same as the original ChangePropertyValue transformation from Neos.ContentRepository but with the
+added ability to search and replace in numeric values. * This is useful when you want to change a property value that
+is a number but you want to change it to a string.
+
 ### [RenamePropertyValuesMigration](Classes/Migrations/RenamePropertyValuesMigration.php)
 
 This can be used to rename one or multiply property values. This is also possible with default yaml, but need many
