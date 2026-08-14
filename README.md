@@ -32,9 +32,42 @@ Run `./flow help node:automigrate` to see the options:
 --dry-run            If true, no changes will be made
 ```
 
-## Aditional migration helper
+## Aditional filter migration helper
 
-### [ChangeNumericPropertyValueMigration](Classes/Migrations/ChangeNumericPropertyValueMigration.php)
+Filters define which nodes are affected by a migration. They are evaluated before the transformation is executed and
+work like a condition: only matching nodes are processed.
+
+The most common filters are the built-in ones from the Neos content repository, for example `NodeType` to restrict a
+migration to one node type.
+
+### [PropertyValue](Classes/Migrations/Filters/PropertyValue.php)
+
+In addition, this package provides the custom `PropertyValue` filter to target nodes by a
+specific property and value which can be inverted.
+
+```yaml
+up:
+  comments: "Apply styling only to a specific content type"
+  migration:
+    - filters:
+        - type: "NodeType"
+          settings:
+            nodeType: "Vendor.Site:Content.Headline"
+            withSubTypes: true
+        - type: "Carbon\AutoMigrate\Migrations\Filters\PropertyValue"
+          settings:
+            propertyName: "layout"
+            propertyValue: "hero"
+            inverted: true
+      transformations:
+       ...
+```
+
+`PropertyValue` searches in the node's serialized `properties` field for a matching key/value pair. This is useful when
+you want to limit a migration to nodes that already contain a certain value. Setting `inverted: true` reverses the
+condition so that only nodes without that property value are processed.
+
+## Aditional transformation migration helper
 
 Change the numeric value of a given property.
 
