@@ -1,5 +1,6 @@
 <?php
-namespace Carbon\AutoMigrate\Migrations;
+
+namespace Carbon\AutoMigrate\Migrations\Transformations;
 
 use Neos\ContentRepository\Domain\Model\NodeData;
 use Neos\ContentRepository\Migration\Transformations\AbstractTransformation;
@@ -15,7 +16,7 @@ use Neos\ContentRepository\Migration\Transformations\AbstractTransformation;
  * `min` The minimal value to use for the property.
  *
  */
-class ChangeNumericPropertyValueMigration extends AbstractTransformation
+class ChangeNumericPropertyValue extends AbstractTransformation
 {
     /**
      * @var string

@@ -1,6 +1,6 @@
 <?php
 
-namespace Carbon\AutoMigrate\Migrations;
+namespace Carbon\AutoMigrate\Migrations\Transformations;
 
 use Doctrine\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
@@ -21,7 +21,7 @@ use Doctrine\DBAL\Schema\Schema;
  *      ];
  * }
  */
-class RenameNodeTypesMigration extends AbstractMigration
+class RenameNodeTypes extends AbstractMigration
 {
     public array $nodeTypes = [];
 

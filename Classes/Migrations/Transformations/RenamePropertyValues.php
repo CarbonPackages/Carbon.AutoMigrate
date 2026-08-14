@@ -1,12 +1,12 @@
 <?php
 
-namespace Carbon\AutoMigrate\Migrations;
+namespace Carbon\AutoMigrate\Migrations\Transformations;
 
 use Neos\ContentRepository\Domain\Model\NodeData;
 use Neos\ContentRepository\Migration\Transformations\AbstractTransformation;
 use Neos\Neos\Controller\CreateContentContextTrait;
 
-class RenamePropertyValuesMigration extends AbstractTransformation
+class RenamePropertyValues extends AbstractTransformation
 {
     use CreateContentContextTrait;
 

@@ -1,5 +1,6 @@
 <?php
-namespace Carbon\AutoMigrate\Migrations;
+
+namespace Carbon\AutoMigrate\Migrations\Transformations;
 
 /*
  * This is basically the same as the original ChangePropertyValue transformation from Neos.ContentRepository
@@ -30,7 +31,7 @@ use Neos\ContentRepository\Migration\Transformations\AbstractTransformation;
  *
  * If search and replace are given, that replacement will be done on the value (after applying the newValue if set).
  */
-class ChangePropertyValueMigration extends AbstractTransformation
+class ChangePropertyValue extends AbstractTransformation
 {
     /**
      * @var string
