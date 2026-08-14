@@ -78,4 +78,5 @@ class PropertyValue implements DoctrineFilterInterface
         $likeExpression = $baseQuery->like('properties', $likeParameter, false);
 
         return [$this->inverted ? $baseQuery->logicalNot($likeExpression) : $likeExpression];
+    }
 }
